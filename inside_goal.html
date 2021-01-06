@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="C:\Users\nancy\.vscode\timerwebsite\static\styles.css" rel="stylesheet">
+<!--        <link href = "templates/index.html">-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src = "static/timer.js"></script>
+
+        <!-- <script type = "module" src= "{{url_for('static', filename = '../../static/timer.js')}}"> </script> -->
+
+      <!--  <script>$.get( "index.html", function(test) {
+                 $( "#h1" ).val( test );
+                     alert( "Load was performed." );
+                    });</script>-->
+    </head>
+    <body>
+        <h1 id = "h1">
+          <!--  <script>$( "#h1" ).load( "index.html #goal" );</script>-->
+
+            testing {{ name }} !!!
+
+        </h1>
+        <div class="base-timer">
+        <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g class="base-timer__circle">
+                 <circle class="base-timer__path-elapsed" cx="50" cy="50" r="15" />
+                 <path id="base-timer-path-remaining"
+                        stroke-dasharray="94"
+                        class="base-timer__path-remaining"
+                        d="
+                            M 50, 50
+                            m -15, 0
+                            a 5,5 0 1,0 30,0
+                            a 5,5 0 1,0 -30,0
+                            "
+                    ></path>
+            </g>
+          </svg>
+
+
+     <span id="base-timer-label" class="base-timer__label">
+        <form id = "mins" onsubmit = "enteredMinSec(); return false;">
+             <input type = "text", id = "usertime">
+             <input type = "submit", value = "Enter time, format: minutes:seconds", id = "usertime2">
+         </form>
+      </span>
+    </div>
+
+
+<div id="btime">
+    </div>
+{%block body%}
+
+    <ul id = "time">
+        {%for row in rows%}
+            <li>{{ row['goal'] }} ------ {{ row["productive"] }}</li>
+
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+    </body>
+</html>
